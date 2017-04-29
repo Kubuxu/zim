@@ -10,8 +10,8 @@ use std::path::Path;
 fn main() {
 
 
-    let zim = Zim::new("wikispecies_en_all_2015-11.zim").ok().unwrap();
-    let root_output = Path::new("zim_output_3");
+    let zim = Zim::new("wikipedia_en_all.zim").ok().unwrap();
+    let root_output = Path::new("zim_output");
 
     // map between cluster and directory entry
     let mut cluster_map = HashMap::new();

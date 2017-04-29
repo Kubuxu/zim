@@ -150,8 +150,12 @@ impl Cluster {
     }
     pub fn get_blob(&self, idx: u32) -> &[u8] {
         let this_blob_off = self.blob_list[idx as usize] as usize;
+	if self.blob_list.len() > idx as usize + 1 {
         let next_blob_off = self.blob_list[idx as usize + 1] as usize;
-        &self.data[this_blob_off..next_blob_off]
+            &self.data[this_blob_off..next_blob_off]
+        } else {
+            &self.data[this_blob_off..]
+        }
     }
 }
 
